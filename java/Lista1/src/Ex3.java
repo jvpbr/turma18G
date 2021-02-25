@@ -4,7 +4,8 @@ import java.util.Scanner;
 3. Faça um sistema que leia o tempo de duração de um evento em uma fábrica
 expressa em segundos e mostre-o expresso em horas, minutos e segundos.
 */
-public class Ex3 {
+public class Ex3 
+{
 	public static void main(String[] args) 
 	{
 		Scanner scan = new Scanner(System.in);

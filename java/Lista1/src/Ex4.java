@@ -3,7 +3,8 @@ import java.util.Scanner;
 4. Escreva um sistema que leia três números inteiros e positivos (A, B, C) e
 calcule a seguinte expressão: D=(R+S)/2, onde R=(A+B)² e S=(B+C)²
 */
-public class Ex4 {
+public class Ex4 
+{
 	public static void main(String[] args) 
 	{
 		Scanner scan = new Scanner(System.in);
