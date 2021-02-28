@@ -32,48 +32,51 @@ public class Ex4
 		
 		while(contador<151)//|| opcao=='S'
 		{
-		System.out.printf("Digite a idade %d: ", contador);
-		idade = scan.nextInt();
+			System.out.printf("Digite a idade %d: ", contador);
+			idade = scan.nextInt();
 		
-		System.out.print("Digite o sexo (1-feminino / 2-masculino / 3-Outros): ");
-		sexo = scan.next().charAt(0);
+			System.out.print("Digite o sexo (1-feminino / 2-masculino / 3-Outros): ");
+			sexo = scan.next().charAt(0);
 		
-		System.out.print("Qual o temperamento ? (1-Calma / 2-Nervosa / 3-Agressiva): ");
-		humor= scan.next().charAt(0);
+			System.out.print("Qual o temperamento ? (1-Calma / 2-Nervosa / 3-Agressiva): ");
+			humor= scan.next().charAt(0);
 		
-		if(humor=='1')
-		{
-			pessoaCalma++;
-		}
-		if(humor=='2' && sexo=='1') 
-		{
-			mulherNervosa++;
-		}
-		if(humor=='3' && sexo=='2')
-		{
-			homemAgressivo++;
-		}
-		if(humor=='1' && sexo=='3')
-		{
-			outrosCalmo++;
-		}
-		if(humor=='2' && idade>=40)
-		{
-			pessoaNervosa40++;
-		}
-		if(humor=='1' && idade<18) 
-		{
-			pessoaCalma18++;
-		}
-		
-		System.out.println("Continuar ?\n (S - Sim ou N - Não)");
-		opcao = scan.next().toUpperCase().charAt(0);
-		
-		if(opcao!='S'){break;}
-		
-		scan.close();
-		
-		contador++;
+			if(humor=='1')
+			{
+				pessoaCalma++;
+			}
+			if(humor=='2' && sexo=='1') 
+			{
+				mulherNervosa++;
+			}
+			if(humor=='3' && sexo=='2')
+			{
+				homemAgressivo++;
+			}
+			if(humor=='1' && sexo=='3')
+			{
+				outrosCalmo++;
+			}
+			if(humor=='2' && idade>=40)
+			{
+				pessoaNervosa40++;
+			}
+			if(humor=='1' && idade<18) 
+			{
+				pessoaCalma18++;
+			}
+			
+			System.out.println("Continuar ?\n (S - Sim ou N - Não)");
+			opcao = scan.next().toUpperCase().charAt(0);
+			
+			if(opcao!='S')
+			{
+				break;
+			}
+			
+			scan.close();
+			
+			contador++;
 		}
 		System.out.printf("Pessoas calmas: %d", pessoaCalma);
 		System.out.printf("\nMulheres nervosas: %d", mulherNervosa);
@@ -81,6 +84,5 @@ public class Ex4
 		System.out.printf("\nOutros calmos: %d", outrosCalmo);
 		System.out.printf("\nPessoas nervosas com mais de 40 anos: %d", pessoaNervosa40);
 		System.out.printf("\nPessoas calmas com menos de 18 anos: %d", pessoaCalma18);
-		
 	}
 }
