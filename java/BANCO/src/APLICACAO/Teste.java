@@ -2,7 +2,6 @@ package APLICACAO;
 
 import java.util.Scanner;
 
-import CLASSES.Conta;
 import CLASSES.ContaEspecial;
 
 public class Teste 
@@ -12,6 +11,30 @@ public class Teste
 		Scanner scan = new Scanner(System.in);
 		//Conta conta1 = new Conta(1,"111.111.111-11");
 		ContaEspecial conta2 = new ContaEspecial(1,1000);
+		
+		System.out.print("Digite o número da conta: ");
+		int numero = scan.nextInt();
+		
+		System.out.print("Digite o cpf: ");
+		String cpf = scan.next();
+		
+		System.out.print("Digite 1- conta ativa ou 2- conta inativa");
+		char tipo = scan.next().charAt(0);
+		boolean ativa;
+		if(tipo=='1') 
+		{
+			ativa = true;
+		}
+		else
+		{
+			ativa = false;
+		}
+		
+		System.out.print("Digite o limite da conta: ");
+		double limite = scan.nextDouble();
+		
+		ContaEspecial conta1 = new ContaEspecial(numero, cpf, ativa, limite);
+		
 		
 		double valor;
 		char opcao;

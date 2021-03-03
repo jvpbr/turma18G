@@ -8,8 +8,8 @@ public class ContaEspecial extends Conta
 		this.limite = limite;
 	}
 
-	public ContaEspecial(int numero, String cpf, double limite) {
-		super(numero, cpf);
+	public ContaEspecial(int numero, String cpf, boolean ativa, double limite) {
+		super(numero, cpf, ativa);
 		this.limite = limite;
 	}
 

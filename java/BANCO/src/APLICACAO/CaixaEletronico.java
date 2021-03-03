@@ -12,7 +12,7 @@ public class CaixaEletronico
 		int opcao;// variavel utilizada para saber se o usuario deseja continuar
 		int data;// usada para saber o aniversario da poupanca
 		char movimento;//usada para saber se a pessoa quer a opcao de debito(-) ou credito(+)
-		int operacoes=0;//usada para contar a operacoes q o usario faz(no maximo 10)
+		int operacoes=0;//usada para contar as operacoes q o usario faz(no maximo 10 pela regra estabelecida no do while())
 		double valor;//usada para guardar o valor q o usuario movimenta
 		
 		//vetor que guarda as opcoes de conta
@@ -34,7 +34,9 @@ public class CaixaEletronico
 		}
 		
 		System.out.print("\nDIGITE O NÚMERO DA OPÇÃO SELECIONADA: ");
+		//variavel que recebe a opcao de conta que o usuario escolheu
 		opcao = scan.nextInt();
+		
 		
 		//loop para limpar o console
 		for(int limpa=0; limpa<2; limpa++)
@@ -47,6 +49,7 @@ public class CaixaEletronico
 		
 		
 		//switch q de acordo com o que entra na opcao executa o caso equivalente
+		//Exemplo caso escolha 1:{faz oq ta dentro das chaves}
 		switch(opcao) 
 		{	
 			case 1:
@@ -61,39 +64,71 @@ public class CaixaEletronico
 				//loop para fazer 10 operacoes ou ate digitar N para sair
 				do
 				{
-				System.out.printf("\nSALDO ATUAL: %.2f", conta1.getSaldo());
+					System.out.printf("\nSALDO ATUAL: %.2f", conta1.getSaldo());
 				
-				System.out.print("\nDEBITO OU CREDITO? [D] [C]: ");
-				movimento = scan.next().toUpperCase().charAt(0);
+					System.out.print("\nDEBITO OU CREDITO? [D] [C]: ");
+					movimento = scan.next().toUpperCase().charAt(0);
 				
-				System.out.print("DIGITE O VALOR: ");
-				valor = scan.nextDouble();
+					System.out.print("DIGITE O VALOR: ");
+					valor = scan.nextDouble();
 				
-				if(movimento=='D') 
-				{
-					conta1.debito(valor);
-				}
-				else if(movimento=='C') 
-				{
-					conta1.credito(valor);
-				}
-				else
-				{
-					System.out.print("OPÇÃO INVÁLIDA!");
-				}
+					if(movimento=='D') 
+					{
+						conta1.debito(valor);
+					}
+					else if(movimento=='C') 
+					{
+						conta1.credito(valor);
+					}
+					else
+					{
+						System.out.print("OPÇÃO INVÁLIDA!");
+					}
 				
-				conta1.correcao(data);
-				System.out.print("\nDESEJA CONTINUAR ? [S] SIM , [N] NÃO: ");
-				opcao = scan.next().toUpperCase().charAt(0);
+					conta1.correcao(data);
+					System.out.print("\nDESEJA FAZER OUTRA OPERAÇÃO ? [S] SIM , [N] NÃO: ");
+					opcao = scan.next().toUpperCase().charAt(0);
 				
-				operacoes++;
+					operacoes++;
 				}while(operacoes<10 && opcao=='S');
 				
 				break;
 			}
 			case 2:
+			{
+				System.out.printf("\nCONTA %s", opcoes[0]);
 				
+				do
+				{
+					System.out.printf("\nSALDO ATUAL: %.2f", conta1.getSaldo());
 				
+					System.out.print("\nDEBITO OU CREDITO? [D] [C]: ");
+					movimento = scan.next().toUpperCase().charAt(0);
+				
+					System.out.print("DIGITE O VALOR: ");
+					valor = scan.nextDouble();
+				
+					if(movimento=='D') 
+					{
+						conta1.debito(valor);
+					}
+					else if(movimento=='C') 
+					{
+						conta1.credito(valor);
+					}
+					else
+					{
+						System.out.print("OPÇÃO INVÁLIDA!");
+					}
+				
+					System.out.print("\nDESEJA FAZER OUTRA OPERAÇÃO ? [S] SIM , [N] NÃO: ");
+					opcao = scan.next().toUpperCase().charAt(0);
+				
+					operacoes++;
+				}while(operacoes<10 && opcao=='S');
+				
+				break;
+			}	
 		}
 		
 		

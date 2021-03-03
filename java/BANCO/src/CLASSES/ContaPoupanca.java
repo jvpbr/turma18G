@@ -4,8 +4,6 @@ public class ContaPoupanca extends Conta
 {
 	private int aniversarioPoupanca;
 
-		
-	
 	public ContaPoupanca(int numero, String cpf, int aniversarioPoupanca) {
 		super(numero, cpf);
 		this.aniversarioPoupanca = aniversarioPoupanca;
@@ -25,6 +23,12 @@ public class ContaPoupanca extends Conta
 
 	public void setAniversarioPoupanca(int aniversarioPoupanca) {
 		this.aniversarioPoupanca = aniversarioPoupanca;
+	}
+	
+	@Override
+	public void credito(double valor) 
+	{
+		this.saldo += valor;
 	}
 	
 	public void correcao(int data)
