@@ -5,7 +5,7 @@ public class Conta
 	//atributos
 	private int numero;
 	private String cpf;
-	private double saldo;
+	protected double saldo;
 	private boolean ativa;
 	
 	//construtor
@@ -71,7 +71,7 @@ public class Conta
 		}
 		else
 		{
-			System.out.print("Saldo insuficiente");
+			System.out.print("SALDO INSUFICIENTE");
 		}	
 	}
 }
