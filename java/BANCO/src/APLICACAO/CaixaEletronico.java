@@ -9,20 +9,25 @@ public class CaixaEletronico
 	public static void main(String[] args) 
 	{
 		Scanner scan = new Scanner(System.in);
-		int opcao;
-		int data;
-		char movimento;
-		int operacoes=0;
-		double valor;
+		int opcao;// variavel utilizada para saber se o usuario deseja continuar
+		int data;// usada para saber o aniversario da poupanca
+		char movimento;//usada para saber se a pessoa quer a opcao de debito(-) ou credito(+)
+		int operacoes=0;//usada para contar a operacoes q o usario faz(no maximo 10)
+		double valor;//usada para guardar o valor q o usuario movimenta
+		
+		//vetor que guarda as opcoes de conta
 		String opcoes[] = {"[1] |POUPANÇA|", "[2] |OUTRO|"};
 		
-		ContaPoupanca poupanca = new ContaPoupanca(1,"1");
+		//criei o objeto conta1
+		ContaPoupanca conta1 = new ContaPoupanca(1,"1");
 		
+		//Textos so pra deixar bonito
 		System.out.print("|BANCO BANCO|");
 		System.out.print("\n|O BANCO DOS BANCOS|");
 		
 		System.out.print("\nSELECIONE O TIPO DE CONTA: ");
 		
+		//loop q mostra toda as opcoes de conta
 		for(int linha=0; linha<opcoes.length; linha++)
 		{
 		System.out.printf("\n%s", opcoes[linha]);
@@ -31,6 +36,7 @@ public class CaixaEletronico
 		System.out.print("\nDIGITE O NÚMERO DA OPÇÃO SELECIONADA: ");
 		opcao = scan.nextInt();
 		
+		//loop para limpar o console
 		for(int limpa=0; limpa<2; limpa++)
 		{
 			System.out.print("\n");
@@ -38,6 +44,9 @@ public class CaixaEletronico
 		
 		System.out.print("|BANCO BANCO|");
 		System.out.print("\n|O BANCO DOS BANCOS|");
+		
+		
+		//switch q de acordo com o que entra na opcao executa o caso equivalente
 		switch(opcao) 
 		{	
 			case 1:
@@ -48,7 +57,7 @@ public class CaixaEletronico
 				
 				do
 				{
-				System.out.printf("\nSALDO ATUAL: %.2f", poupanca.getSaldo());
+				System.out.printf("\nSALDO ATUAL: %.2f", conta1.getSaldo());
 				
 				System.out.print("\nDEBITO OU CREDITO? [D] [C]: ");
 				movimento = scan.next().toUpperCase().charAt(0);
@@ -58,18 +67,18 @@ public class CaixaEletronico
 				
 				if(movimento=='D') 
 				{
-					poupanca.debito(valor);
+					conta1.debito(valor);
 				}
 				else if(movimento=='C') 
 				{
-					poupanca.credito(valor);
+					conta1.credito(valor);
 				}
 				else
 				{
 					System.out.print("OPÇÃO INVÁLIDA!");
 				}
 				
-				poupanca.correcao(data);
+				conta1.correcao(data);
 				System.out.print("\nDESEJA CONTINUAR ? [S] SIM , [N] NÃO: ");
 				opcao = scan.next().toUpperCase().charAt(0);
 				

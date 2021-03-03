@@ -7,6 +7,14 @@ public class ContaPoupanca extends Conta
 	public ContaPoupanca(int numero, String cpf) {
 		super(numero, cpf);
 	}	
+	
+	public ContaPoupanca(int numero) {
+		super(numero);
+	}
+
+	public ContaPoupanca(int numero, String cpf, boolean ativa) {
+		super(numero, cpf, ativa);
+	}
 
 	public int getAniversarioPoupanca() {
 		return aniversarioPoupanca;
