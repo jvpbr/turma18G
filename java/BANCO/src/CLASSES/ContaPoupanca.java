@@ -2,12 +2,15 @@ package CLASSES;
 
 public class ContaPoupanca extends Conta
 {
-	private int aniversarioPoupanca=25;
+	private int aniversarioPoupanca;
 
-	public ContaPoupanca(int numero, String cpf) {
-		super(numero, cpf);
-	}	
+		
 	
+	public ContaPoupanca(int numero, String cpf, int aniversarioPoupanca) {
+		super(numero, cpf);
+		this.aniversarioPoupanca = aniversarioPoupanca;
+	}
+
 	public ContaPoupanca(int numero) {
 		super(numero);
 	}

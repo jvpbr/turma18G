@@ -19,7 +19,7 @@ public class CaixaEletronico
 		String opcoes[] = {"[1] |POUPANÇA|", "[2] |OUTRO|"};
 		
 		//criei o objeto conta1
-		ContaPoupanca conta1 = new ContaPoupanca(1,"1");
+		ContaPoupanca conta1 = new ContaPoupanca(1,"1",25);
 		
 		//Textos so pra deixar bonito
 		System.out.print("|BANCO BANCO|");
@@ -51,10 +51,14 @@ public class CaixaEletronico
 		{	
 			case 1:
 			{
+				//mostra conta e o tipo de conta de acordo com a posicao 0 do vetor opcoes
 				System.out.printf("\nCONTA %s", opcoes[0]);
+				
+				//pego a data para verificar o aniversario da poupanca
 				System.out.printf("\nDIGITE A DATA DE HOJE: ");
 				data = scan.nextInt();
 				
+				//loop para fazer 10 operacoes ou ate digitar N para sair
 				do
 				{
 				System.out.printf("\nSALDO ATUAL: %.2f", conta1.getSaldo());
