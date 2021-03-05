@@ -38,14 +38,11 @@ public class ContaPoupanca extends Conta
 		}
 	}
 	
-	/*@Override
-	public double getSaldo() {
-		return super.getSaldo()*0.05;
-	}*/
-	
 	@Override
 	public void credito(double valor) 
 	{
 		this.saldo += valor;
 	}
+	
+	
 }

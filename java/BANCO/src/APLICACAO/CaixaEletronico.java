@@ -19,16 +19,18 @@ public class CaixaEletronico
 		char resposta;
 		
 		//vetor que guarda as opcoes de conta
-		String opcoes[] = {"[1] |POUPANÇA|", "[2] |CORRENTE|", "[3] |ESPECIAL|"};
+		String opcoes[] = {"[1] |POUPANÇA|", "[2] |CORRENTE|", "[3] |ESPECIAL|", "[4] |EMPRESA|", "[5] |ESTUDANTIL|"};
 		
 		//criei o objeto conta1
 		ContaPoupanca conta1 = new ContaPoupanca(1,"1",25);
 		ContaCorrente conta2 = new ContaCorrente(2,"2",3);
 		ContaEspecial conta3 = new ContaEspecial(3,"3",1000);
+		//ContaEmpresa conta4 = new ContaEmpresa();
+		//ContaEstudantil conta4 = new ContaEstudantil();
 		
 		//Textos so pra deixar bonito
-		System.out.print("|BANCO BANCO|");
-		System.out.print("\n|O BANCO DOS BANCOS|");
+		System.out.print("|DIVERSITY BANK G3|");
+		System.out.print("\n|O BANCO DA DIVERSIDADE|");
 		
 		System.out.print("\nSELECIONE O TIPO DE CONTA: ");
 		
@@ -49,8 +51,8 @@ public class CaixaEletronico
 			System.out.print("\n");
 		}
 		
-		System.out.print("|BANCO BANCO|");
-		System.out.print("\n|O BANCO DOS BANCOS|");
+		System.out.print("|DIVERSITY BANK G3|");
+		System.out.print("\n|O BANCO DA DIVERSIDADE|");
 		
 		
 		//switch q de acordo com o que entra na opcao executa o caso equivalente
@@ -114,15 +116,18 @@ public class CaixaEletronico
 					System.out.print("\nDEBITO OU CREDITO? [D] [C]: ");
 					movimento = scan.next().toUpperCase().charAt(0);
 				
-					System.out.print("DIGITE O VALOR: ");
-					valor = scan.nextDouble();
+					
 				
 					if(movimento=='D') 
 					{
+						System.out.print("DIGITE O VALOR: ");
+						valor = scan.nextDouble();
 						conta2.debito(valor);
 					}
 					else if(movimento=='C') 
 					{
+						System.out.print("DIGITE O VALOR: ");
+						valor = scan.nextDouble();
 						conta2.credito(valor);
 					}
 					else
@@ -167,15 +172,16 @@ public class CaixaEletronico
 					System.out.print("\nDEBITO OU CREDITO? [D] [C]: ");
 					movimento = scan.next().toUpperCase().charAt(0);
 				
-					System.out.print("DIGITE O VALOR: ");
-					valor = scan.nextDouble();
-				
 					if(movimento=='D') 
 					{
+						System.out.print("DIGITE O VALOR: ");
+						valor = scan.nextDouble();
 						conta3.debito(valor);
 					}
 					else if(movimento=='C') 
 					{
+						System.out.print("DIGITE O VALOR: ");
+						valor = scan.nextDouble();
 						conta3.credito(valor);
 					}
 					else
@@ -192,7 +198,23 @@ public class CaixaEletronico
 					operacoes++;
 				}while(operacoes<10 && opcao=='S');
 				
+				System.out.printf("\nSALDO ATUAL: %.2f", conta1.getSaldo());
+				
 				break;
+			}
+			case 4:
+			{
+				
+			}
+			
+			case 5:
+			{
+				
+			}
+			
+			default:
+			{
+				System.out.print("ESCOLHA UMA OPÇÃO VALIDA!");
 			}
 		}
 		/*
