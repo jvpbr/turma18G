@@ -97,6 +97,8 @@ public class CaixaEletronico
 					operacoes++;
 				}while(operacoes<10 && opcao=='S');
 				
+				System.out.printf("\nSALDO ATUAL: %.2f", conta1.getSaldo());
+				
 				break;
 			}
 			case 2:
@@ -138,7 +140,8 @@ public class CaixaEletronico
 				{
 					System.out.println("\nDeseja solicitar um talão?");
 		            resposta = scan.next().toUpperCase().charAt(0);
-					conta2.pediTalao();
+					
+		            conta2.pediTalao();
 					
 					if(conta2.getContadorTalao()==0)
 					{

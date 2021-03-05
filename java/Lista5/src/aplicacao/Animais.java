@@ -16,7 +16,7 @@ public class Animais {
 		//Cachorro cachorro1 = new Cachorro("Dog",5);
 		//Cavalo cavalo1 = new Cavalo("Pé de pano",7);
 		//Preguica preguica1 = new Preguica("Jack",10);
-		Scanner scan = new Scanner(System.in);
+		//Scanner scan = new Scanner(System.in);
 		
 		List<Animal> lista = new ArrayList<>();
 		

@@ -4,6 +4,7 @@ public class ContaPoupanca extends Conta
 {
 	private int aniversarioPoupanca;
 
+
 	public ContaPoupanca(int numero, String cpf, int aniversarioPoupanca) {
 		super(numero, cpf);
 		this.aniversarioPoupanca = aniversarioPoupanca;
@@ -25,19 +26,26 @@ public class ContaPoupanca extends Conta
 		this.aniversarioPoupanca = aniversarioPoupanca;
 	}
 	
+	
+	public void correcao(int data)
+	{
+		if(this.aniversarioPoupanca==data)//&&saldo>0) //&& this.getSaldo()>0) 
+		{	
+			//double saldo = this.getSaldo();
+			this.saldo += (saldo*0.05);
+			//return(super.getSaldo*0.05);			
+			System.out.print("\nANIVERSARIO DA POUPANÇA!");
+		}
+	}
+	
+	/*@Override
+	public double getSaldo() {
+		return super.getSaldo()*0.05;
+	}*/
+	
 	@Override
 	public void credito(double valor) 
 	{
 		this.saldo += valor;
-	}
-	
-	public void correcao(int data)
-	{
-		if(this.aniversarioPoupanca==data) 
-		{	
-			this.saldo += (this.saldo*0.05);
-			
-			System.out.print("ANIVERSARIO DA POUPANÇA!");
-		}
 	}
 }

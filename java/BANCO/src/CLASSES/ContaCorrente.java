@@ -1,7 +1,5 @@
 package CLASSES;
 
-import java.util.Scanner;
-
 public class ContaCorrente extends Conta {
 
     protected int contadorTalao;
