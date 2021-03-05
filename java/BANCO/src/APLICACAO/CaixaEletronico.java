@@ -2,6 +2,8 @@ package APLICACAO;
 
 import java.util.Scanner;
 
+import CLASSES.ContaCorrente;
+import CLASSES.ContaEspecial;
 import CLASSES.ContaPoupanca;
 
 public class CaixaEletronico 
@@ -14,12 +16,15 @@ public class CaixaEletronico
 		char movimento;//usada para saber se a pessoa quer a opcao de debito(-) ou credito(+)
 		int operacoes=0;//usada para contar as operacoes q o usario faz(no maximo 10 pela regra estabelecida no do while())
 		double valor;//usada para guardar o valor q o usuario movimenta
+		char resposta;
 		
 		//vetor que guarda as opcoes de conta
-		String opcoes[] = {"[1] |POUPANÇA|", "[2] |OUTRO|"};
+		String opcoes[] = {"[1] |POUPANÇA|", "[2] |CORRENTE|", "[3] |ESPECIAL|"};
 		
 		//criei o objeto conta1
 		ContaPoupanca conta1 = new ContaPoupanca(1,"1",25);
+		ContaCorrente conta2 = new ContaCorrente(2,"2",3);
+		ContaEspecial conta3 = new ContaEspecial(3,"3",1000);
 		
 		//Textos so pra deixar bonito
 		System.out.print("|BANCO BANCO|");
@@ -61,7 +66,7 @@ public class CaixaEletronico
 				System.out.printf("\nDIGITE A DATA DE HOJE: ");
 				data = scan.nextInt();
 				
-				//loop para fazer 10 operacoes ou ate digitar N para sair
+				//loop para fazer 10 operacoes no maximo ou ate digitar qualquer outra caractere q nao seja o S
 				do
 				{
 					System.out.printf("\nSALDO ATUAL: %.2f", conta1.getSaldo());
@@ -96,7 +101,7 @@ public class CaixaEletronico
 			}
 			case 2:
 			{
-				System.out.printf("\nCONTA %s", opcoes[0]);
+				System.out.printf("\nCONTA %s", opcoes[1]);
 				
 				do
 				{
@@ -110,11 +115,11 @@ public class CaixaEletronico
 				
 					if(movimento=='D') 
 					{
-						conta1.debito(valor);
+						conta2.debito(valor);
 					}
 					else if(movimento=='C') 
 					{
-						conta1.credito(valor);
+						conta2.credito(valor);
 					}
 					else
 					{
@@ -127,11 +132,64 @@ public class CaixaEletronico
 					operacoes++;
 				}while(operacoes<10 && opcao=='S');
 				
+				System.out.printf("\nSALDO ATUAL: %.2f", conta1.getSaldo());
+				
+				do 
+				{
+					System.out.println("\nDeseja solicitar um talão?");
+		            resposta = scan.next().toUpperCase().charAt(0);
+					conta2.pediTalao();
+					
+					if(conta2.getContadorTalao()==0)
+					{
+						System.out.print("\nVocê não tem mais talões!"); 
+					}
+					
+				}while(conta2.getContadorTalao()>0 && resposta=='S');
+				
+				
+					
 				break;
-			}	
+			}
+			case 3:
+			{
+				System.out.printf("\nCONTA %s", opcoes[2]);
+				
+				do
+				{
+					System.out.printf("\nSALDO ATUAL: %.2f", conta1.getSaldo());
+				
+					System.out.print("\nDEBITO OU CREDITO? [D] [C]: ");
+					movimento = scan.next().toUpperCase().charAt(0);
+				
+					System.out.print("DIGITE O VALOR: ");
+					valor = scan.nextDouble();
+				
+					if(movimento=='D') 
+					{
+						conta3.debito(valor);
+					}
+					else if(movimento=='C') 
+					{
+						conta3.credito(valor);
+					}
+					else
+					{
+						System.out.print("OPÇÃO INVÁLIDA!");
+					}
+					
+					
+				
+					System.out.print("\nDESEJA FAZER OUTRA OPERAÇÃO ? [S] SIM , [N] NÃO: ");
+					opcao = scan.next().toUpperCase().charAt(0);
+					
+					
+					operacoes++;
+				}while(operacoes<10 && opcao=='S');
+				
+				break;
+			}
 		}
-		
-		
 		/*
 		if(opcao==1)
 		{

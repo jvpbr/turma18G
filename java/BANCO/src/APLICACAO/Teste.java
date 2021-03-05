@@ -10,7 +10,7 @@ public class Teste
 	{
 		Scanner scan = new Scanner(System.in);
 		//Conta conta1 = new Conta(1,"111.111.111-11");
-		ContaEspecial conta2 = new ContaEspecial(1,1000);
+		ContaEspecial conta2 = new ContaEspecial(1,"2",1000);
 		
 		System.out.print("Digite o número da conta: ");
 		int numero = scan.nextInt();
