@@ -271,7 +271,7 @@ public class CaixaEletronico
 			
 			default:
 			{
-				System.out.print("ESCOLHA UMA OPÇÃO VALIDA!");
+				System.out.print("\nESCOLHA UMA OPÇÃO VALIDA!");
 				break;
 			}
 		}
