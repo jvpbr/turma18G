@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import CLASSES.ContaCorrente;
 import CLASSES.ContaEspecial;
+import CLASSES.ContaEstudantil;
 import CLASSES.ContaPoupanca;
 
 public class CaixaEletronico 
@@ -26,7 +27,7 @@ public class CaixaEletronico
 		ContaCorrente conta2 = new ContaCorrente(2,"2",3);
 		ContaEspecial conta3 = new ContaEspecial(3,"3",1000);
 		//ContaEmpresa conta4 = new ContaEmpresa();
-		//ContaEstudantil conta4 = new ContaEstudantil();
+		ContaEstudantil conta5 = new ContaEstudantil(5,"5",0,true);
 		
 		//Textos so pra deixar bonito
 		System.out.print("|DIVERSITY BANK G3|");
@@ -95,6 +96,8 @@ public class CaixaEletronico
 					}
 				
 					conta1.correcao(data);
+					System.out.printf("\nSALDO ATUAL: %.2f", conta1.getSaldo());
+					
 					System.out.print("\nDESEJA FAZER OUTRA OPERAÇÃO ? [S] SIM , [N] NÃO: ");
 					opcao = scan.next().toUpperCase().charAt(0);
 				
@@ -111,7 +114,7 @@ public class CaixaEletronico
 				
 				do
 				{
-					System.out.printf("\nSALDO ATUAL: %.2f", conta1.getSaldo());
+					System.out.printf("\nSALDO ATUAL: %.2f", conta2.getSaldo());
 				
 					System.out.print("\nDEBITO OU CREDITO? [D] [C]: ");
 					movimento = scan.next().toUpperCase().charAt(0);
@@ -141,22 +144,26 @@ public class CaixaEletronico
 					operacoes++;
 				}while(operacoes<10 && opcao=='S');
 				
-				System.out.printf("\nSALDO ATUAL: %.2f", conta1.getSaldo());
+				System.out.printf("\nSALDO ATUAL: %.2f", conta2.getSaldo());
+				
+				System.out.printf("VOCÊ TEM %d TALÕES", conta2.getContadorTalao());
 				
 				do 
 				{
-					System.out.println("\nDeseja solicitar um talão?");
+					System.out.println("\nDESEJA SOLICITAR UM TALÃO? [S] SIM , [N] NÃO:");
 		            resposta = scan.next().toUpperCase().charAt(0);
 					
-		            conta2.pediTalao();
+		            if (resposta == 'S')
+		            {
+						conta2.pediTalao();
+					}
 					
 					if(conta2.getContadorTalao()==0)
 					{
-						System.out.print("\nVocê não tem mais talões!"); 
+						System.out.print("\nVOCÊ NÃO TEM MAIS TALÕES!"); 
 					}
 					
 				}while(conta2.getContadorTalao()>0 && resposta=='S');
-				
 				
 					
 				break;
@@ -164,65 +171,110 @@ public class CaixaEletronico
 			case 3:
 			{
 				System.out.printf("\nCONTA %s", opcoes[2]);
-				
-				do
-				{
-					System.out.printf("\nSALDO ATUAL: %.2f", conta1.getSaldo());
-				
-					System.out.print("\nDEBITO OU CREDITO? [D] [C]: ");
-					movimento = scan.next().toUpperCase().charAt(0);
-				
-					if(movimento=='D') 
-					{
-						System.out.print("DIGITE O VALOR: ");
-						valor = scan.nextDouble();
-						conta3.debito(valor);
-					}
-					else if(movimento=='C') 
-					{
-						System.out.print("DIGITE O VALOR: ");
-						valor = scan.nextDouble();
-						conta3.credito(valor);
-					}
-					else
-					{
-						System.out.print("OPÇÃO INVÁLIDA!");
-					}
-					
-					
-				
-					System.out.print("\nDESEJA FAZER OUTRA OPERAÇÃO ? [S] SIM , [N] NÃO: ");
-					opcao = scan.next().toUpperCase().charAt(0);
-					
-					
-					operacoes++;
-				}while(operacoes<10 && opcao=='S');
-				
-				System.out.printf("\nSALDO ATUAL: %.2f", conta1.getSaldo());
-				
-				break;
+
+                do
+                {
+                    System.out.printf("\nSALDO ATUAL: %.2f", conta3.getSaldo());
+                    System.out.printf("\nLIMITE ESPECIAL ATUAL: %.2f", conta3.getLimite());
+                    System.out.println();//Pular uma linha para separar a pergunta seguinte dessa parte
+
+                    System.out.print("\nDEBITO OU CREDITO? [D] [C]: ");
+                    movimento = scan.next().toUpperCase().charAt(0);
+
+                    if(movimento=='D') 
+                    {
+                        System.out.print("DIGITE O VALOR: ");
+                        valor = scan.nextDouble();
+                        conta3.usarlimite(valor);
+                    }
+                    else if(movimento=='C') 
+                    {
+                        System.out.print("DIGITE O VALOR: ");
+                        valor = scan.nextDouble();
+                        conta3.credito(valor);
+                    }
+                    else
+                    {
+                        System.out.print("OPÇÃO INVÁLIDA!");
+                    }
+
+                    System.out.print("\nDESEJA FAZER OUTRA OPERAÇÃO ? [S] SIM , [N] NÃO: ");
+                    opcao = scan.next().toUpperCase().charAt(0);
+
+                    operacoes++;
+                }while(operacoes<10 && opcao=='S');
+
+                //Msg para o usuario apos 10 movimentaçoes
+                if (operacoes == 10) {
+                    System.out.println("Voce chegou ao limite de 10 movimentações");
+                }
+
+                System.out.printf("\nSALDO ATUAL: %.2f", conta3.getSaldo());
+                System.out.printf("\nLIMITE ESPECIAL ATUAL: %.2f", conta3.getLimite());
+                break;
 			}
 			case 4:
 			{
 				
+				break;
 			}
 			
 			case 5:
 			{
-				
+				System.out.printf("\nCONTA %s", opcoes[4]);
+
+                System.out.println("\n DESEJA USAR SEU LIMITE ESTUDANTIL [S] SIM , [N] NÂO: ");
+                char limite = scan.next().toUpperCase().charAt(0);
+
+                if(limite == 'S') {
+                    System.out.println("\nO LIMITE DE R$5000.00 REAIS AGORA ESTÁ NO SEU SALDO.  ");
+                    conta5.usarEstudantil(1);
+                }else if(limite == 'N') {
+                    System.out.println("\n O LIMITE ESTUDANTIL NÃO FOI SOLICITADO.");
+                }
+
+                do
+                {
+                    System.out.printf("\nSALDO ATUAL: %.2f", conta5.getSaldo());
+
+                    System.out.print("\nDEBITO OU CREDITO? [D] [C]: ");
+                    movimento = scan.next().toUpperCase().charAt(0);
+
+                    
+
+                    if(movimento=='D') 
+                    {
+                    	System.out.print("DIGITE O VALOR: ");
+                        valor = scan.nextDouble();
+                        conta5.debito(valor);
+                    }
+                    else if(movimento=='C') 
+                    {
+                    	System.out.print("DIGITE O VALOR: ");
+                        valor = scan.nextDouble();
+                        conta5.credito(valor);
+                    }
+                    else
+                    {
+                        System.out.print("OPÇÃO INVÁLIDA!");
+                    }
+                    System.out.print("\nDESEJA FAZER OUTRA OPERAÇÃO ? [S] SIM , [N] NÃO: ");
+                    opcao = scan.next().toUpperCase().charAt(0);
+
+                    operacoes++;
+                }while(operacoes<10 && opcao=='S' || conta5.getSaldo() == 0);
+
+                System.out.printf("\nSALDO ATUAL: %.2f", conta5.getSaldo());
+                System.out.println("OPERAÇÃO ENCERRADA");
+                break;
 			}
 			
 			default:
 			{
 				System.out.print("ESCOLHA UMA OPÇÃO VALIDA!");
+				break;
 			}
 		}
-		/*
-		if(opcao==1)
-		{
-			
-		}
-		*/
 		scan.close();
 	}
 }

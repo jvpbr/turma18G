@@ -29,20 +29,11 @@ public class ContaPoupanca extends Conta
 	
 	public void correcao(int data)
 	{
-		if(this.aniversarioPoupanca==data)//&&saldo>0) //&& this.getSaldo()>0) 
-		{	
-			//double saldo = this.getSaldo();
-			this.saldo += (saldo*0.05);
-			//return(super.getSaldo*0.05);			
+		if(this.aniversarioPoupanca==data)
+		{		
 			System.out.print("\nANIVERSARIO DA POUPANÇA!");
+			System.out.printf("\nRENDIMENTO: %.2f", (super.getSaldo()*0.05));
+			super.credito(super.getSaldo()*0.05);
 		}
-	}
-	
-	@Override
-	public void credito(double valor) 
-	{
-		this.saldo += valor;
-	}
-	
-	
+	}	
 }
