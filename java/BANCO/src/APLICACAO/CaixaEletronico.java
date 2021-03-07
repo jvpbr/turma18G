@@ -20,7 +20,7 @@ public class CaixaEletronico
 		char resposta;
 		
 		//vetor que guarda as opcoes de conta
-		String opcoes[] = {"[1] |POUPANÇA|", "[2] |CORRENTE|", "[3] |ESPECIAL|", "[4] |EMPRESA|", "[5] |ESTUDANTIL|"};
+		String opcoes[] = {"[1] |POUPANÇA  |", "[2] |CORRENTE  |", "[3] |ESPECIAL  |", "[4] |EMPRESA   |", "[5] |ESTUDANTIL|"};
 		
 		//criei o objeto conta1
 		ContaPoupanca conta1 = new ContaPoupanca(1,"1",25);
