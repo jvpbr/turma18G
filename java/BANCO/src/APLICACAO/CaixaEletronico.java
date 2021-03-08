@@ -255,7 +255,8 @@ public class CaixaEletronico
 	                operacoes++;
 	
 	                }while(operacoes<10 && opcao=='S');
-	
+	                
+	                System.out.printf("\nSALDO ATUAL: %.2f", conta4.getSaldo());
 	                break;
 				}
 				
