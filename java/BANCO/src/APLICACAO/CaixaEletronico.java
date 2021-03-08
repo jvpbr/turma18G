@@ -3,6 +3,7 @@ package APLICACAO;
 import java.util.Scanner;
 
 import CLASSES.ContaCorrente;
+import CLASSES.ContaEmpresarial;
 import CLASSES.ContaEspecial;
 import CLASSES.ContaEstudantil;
 import CLASSES.ContaPoupanca;
@@ -26,7 +27,7 @@ public class CaixaEletronico
 		ContaPoupanca conta1 = new ContaPoupanca(1,"1",25);
 		ContaCorrente conta2 = new ContaCorrente(2,"2",3);
 		ContaEspecial conta3 = new ContaEspecial(3,"3",1000);
-		//ContaEmpresa conta4 = new ContaEmpresa();
+		ContaEmpresarial conta4 = new ContaEmpresarial(4,"4",10000);
 		ContaEstudantil conta5 = new ContaEstudantil(5,"5",0,true);
 		
 		//Textos so pra deixar bonito
@@ -215,8 +216,40 @@ public class CaixaEletronico
 			}
 			case 4:
 			{
-				
-				break;
+				System.out.printf("\nCONTA %s", opcoes[3]);
+                do
+                {
+                System.out.printf("\nSALDO ATUAL: %.2f", conta4.getSaldo());
+
+                System.out.print("\nDEBITO OU CREDITO? [D] [C]: ");
+                movimento = scan.next().toUpperCase().charAt(0);
+
+                System.out.print("DIGITE O VALOR: ");
+                valor = scan.nextDouble();
+
+                if(movimento=='D') 
+                {
+                    conta4.debito(valor);
+                }
+                else if(movimento=='C') 
+                {
+                    conta4.credito(valor);
+                }
+                else
+                {
+                    System.out.print("OPÇÃO INVÁLIDA!");
+                }
+
+                conta4.pedirEmprestimo();
+
+                System.out.print("\nDESEJA FAZER OUTRA OPERAÇÃO ? [S] SIM , [N] NÃO: ");
+                opcao = scan.next().toUpperCase().charAt(0);
+
+                operacoes++;
+
+                }while(operacoes<10 && opcao=='S');
+
+                break;
 			}
 			
 			case 5:
