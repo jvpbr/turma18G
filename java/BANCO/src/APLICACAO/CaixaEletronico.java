@@ -224,15 +224,17 @@ public class CaixaEletronico
                 System.out.print("\nDEBITO OU CREDITO? [D] [C]: ");
                 movimento = scan.next().toUpperCase().charAt(0);
 
-                System.out.print("DIGITE O VALOR: ");
-                valor = scan.nextDouble();
-
+                
                 if(movimento=='D') 
                 {
+                	System.out.print("DIGITE O VALOR: ");
+                    valor = scan.nextDouble();
                     conta4.debito(valor);
                 }
                 else if(movimento=='C') 
                 {
+                	System.out.print("DIGITE O VALOR: ");
+                    valor = scan.nextDouble();
                     conta4.credito(valor);
                 }
                 else
