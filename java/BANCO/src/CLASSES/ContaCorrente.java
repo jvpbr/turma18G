@@ -24,6 +24,6 @@ public class ContaCorrente extends Conta {
     public void pediTalao()
     {
     	contadorTalao--;	
-    	System.out.printf("Quantidade de talões: %d", contadorTalao);
+    	System.out.printf("QUANTIDADE DE TALÕES DISPONIVEIS: %d", contadorTalao);
     }   
 }
