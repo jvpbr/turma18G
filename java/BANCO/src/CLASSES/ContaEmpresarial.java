@@ -39,7 +39,7 @@ public class ContaEmpresarial extends Conta
 
             if (valor <= emprestimoEmpresa) 
             {
-                credito(valor);
+                super.credito(valor);
                 System.out.println("SALDO ATUAL R$: " + super.getSaldo());
                 emprestimoEmpresa -= valor;
                 System.out.println("É POSSÍVEL PEDIR EMPRESTADO R$: " + this.getEmprestimoEmpresa());

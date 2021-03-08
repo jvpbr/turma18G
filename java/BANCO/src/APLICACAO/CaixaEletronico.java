@@ -66,13 +66,13 @@ public class CaixaEletronico
 				//mostra conta e o tipo de conta de acordo com a posicao 0 do vetor opcoes
 				System.out.printf("\nCONTA %s", opcoes[0]);
 				
-				//pego a data para verificar o aniversario da poupanca
-				System.out.printf("\nDIGITE A DATA DE HOJE: ");
-				data = scan.nextInt();
-				
 				//loop para fazer 10 operacoes no maximo ou ate digitar qualquer outra caractere q nao seja o S
 				do
 				{
+					//pego a data para verificar o aniversario da poupanca
+					System.out.printf("\nDIGITE A DATA DE HOJE: ");
+					data = scan.nextInt();
+					
 					System.out.printf("\nSALDO ATUAL: %.2f", conta1.getSaldo());
 				
 					System.out.print("\nDEBITO OU CREDITO? [D] [C]: ");
