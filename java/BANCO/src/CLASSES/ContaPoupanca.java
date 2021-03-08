@@ -32,8 +32,8 @@ public class ContaPoupanca extends Conta
 		if(this.aniversarioPoupanca==data)
 		{		
 			System.out.print("\nANIVERSARIO DA POUPANÇA!");
-			System.out.printf("\nRENDIMENTO: %.2f", (super.getSaldo()*0.05));
-			super.credito(super.getSaldo()*0.05);
+			System.out.printf("\nRENDIMENTO: %.2f", (super.getSaldo()*0.0005));
+			super.credito(super.getSaldo()*0.0005);
 		}
 	}	
 }
