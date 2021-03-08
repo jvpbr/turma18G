@@ -5,10 +5,12 @@ public class ContaCorrente extends Conta {
     protected int contadorTalao;
 
     //CONSTRUTOR
-    public ContaCorrente(int numero, String cpf, int contadorTalao) {
+    public ContaCorrente(int numero, String cpf,boolean ativa, int contadorTalao) {
         super(numero, cpf);
         this.contadorTalao = contadorTalao;
     }
+    
+    
     //ENCAPSULAMENTO
     public int getContadorTalao() {
         return contadorTalao;
